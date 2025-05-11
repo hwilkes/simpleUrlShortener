@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import * as cdk from 'aws-cdk-lib';
-import { UrlShortenerStack } from '../lib/url-shortener-stack';
+import { UrlShortenerStack } from './lib/url-shortener-stack';
 
 const app = new cdk.App();
 new UrlShortenerStack(app, 'UrlShortenerStack', {
@@ -17,4 +17,6 @@ new UrlShortenerStack(app, 'UrlShortenerStack', {
   // env: { account: '123456789012', region: 'us-east-1' },
 
   /* For more information, see https://docs.aws.amazon.com/cdk/latest/guide/environments.html */
+
+  env: { account: process.env.AWS_ACCOUNT, region: process.env.AWS_REGION },
 });
